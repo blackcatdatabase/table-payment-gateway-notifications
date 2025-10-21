@@ -61,7 +61,7 @@ erDiagram
     VARCHAR(255) last_error
     ENUM(''pending'',''processing'',''done'',''failed'') status
   }
-  PAYMENT_GATEWAY_NOTIFICATIONS }o--|| PAYMENTS : (transaction_id)
+  PAYMENT_GATEWAY_NOTIFICATIONS }o--|| PAYMENTS : "transaction_id"
 ```
 
 ## Indexes
