@@ -2,7 +2,7 @@
 
 ![SQL](https://img.shields.io/badge/SQL-MySQL%208.0%2B-4479A1?logo=mysql&logoColor=white) ![License](https://img.shields.io/badge/license-BlackCat%20Proprietary-red) ![Status](https://img.shields.io/badge/status-stable-informational) ![Generated](https://img.shields.io/badge/generated-from%20schema--map-blue)
 
-> Schema package for table **payment_gateway_notifications** (repo: $slug).
+> Schema package for table **payment_gateway_notifications** (repo: `payment-gateway-notifications`).
 
 ## Files
 ```
@@ -44,7 +44,7 @@ mysql -h 127.0.0.1 -P 3307 -u root -proot app < schema/030_foreign_keys.sql
 | processing_until | DATETIME(6) | YES | — |  |
 | attempts | INT UNSIGNED | NO | 0 |  |
 | last_error | VARCHAR(255) | YES | — |  |
-| status | ENUM(''pending'',''processing'',''done'',''failed'') | NO | '' |  |
+| status | ENUM('pending','processing','done','failed') | NO | '' |  |
 
 ## Relationships
 - FK → **payments** via (transaction_id) (ON DELETE CASCADE).
@@ -52,14 +52,14 @@ mysql -h 127.0.0.1 -P 3307 -u root -proot app < schema/030_foreign_keys.sql
 ```mermaid
 erDiagram
   PAYMENT_GATEWAY_NOTIFICATIONS {
-    BIGINT id PK
-    VARCHAR(255) transaction_id
-    DATETIME(6) received_at
-    VARCHAR(100) processing_by
-    DATETIME(6) processing_until
+    INT id PK
+    VARCHAR transaction_id
+    DATETIME received_at
+    VARCHAR processing_by
+    DATETIME processing_until
     INT attempts
-    VARCHAR(255) last_error
-    ENUM(''pending'',''processing'',''done'',''failed'') status
+    VARCHAR last_error
+    ENUM status
   }
   PAYMENT_GATEWAY_NOTIFICATIONS }o--|| PAYMENTS : "transaction_id"
 ```
