@@ -13,4 +13,4 @@ Inbound notifications from payment gateways (webhooks, IPNs).
 | processing_until | DATETIME(6) | YES | — | Lease end. |  |
 | attempts | INT UNSIGNED | NO | 0 | Processing attempts. |  |
 | last_error | VARCHAR(255) | YES | — | Last error message. |  |
-| status | ENUM('pending','processing','done','failed') | NO | ''pending'' | Processing status. | enum: pending, processing, done, failed |
+| status | ENUM('pending','processing','done','failed') | NO | 'pending' | Processing status. | enum: pending, processing, done, failed |

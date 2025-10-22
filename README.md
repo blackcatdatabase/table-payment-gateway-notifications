@@ -46,7 +46,7 @@ mysql -h 127.0.0.1 -P 3307 -u root -proot app < schema/030_foreign_keys.sql
 | processing_until | DATETIME(6) | YES | — |  |
 | attempts | INT UNSIGNED | NO | 0 |  |
 | last_error | VARCHAR(255) | YES | — |  |
-| status | ENUM('pending','processing','done','failed') | NO | '' |  |
+| status | ENUM('pending','processing','done','failed') | NO | 'pending' |  |
 
 ## Relationships
 - FK → **payments** via (transaction_id) (ON DELETE CASCADE).
