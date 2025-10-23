@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace BlackCat\Database\Packages\PaymentGatewayNotifications\Service;
 
-use BlackCat\Core\Database\Database;
+use BlackCat\Core\Database;
 use BlackCat\Database\Packages\PaymentGatewayNotifications\Dto\PaymentGatewayNotificationDto;
 use BlackCat\Database\Packages\PaymentGatewayNotifications\Mapper\PaymentGatewayNotificationDtoMapper;
 use BlackCat\Database\Packages\PaymentGatewayNotifications\Repository\PaymentGatewayNotificationRepository;
