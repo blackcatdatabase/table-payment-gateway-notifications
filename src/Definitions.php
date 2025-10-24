@@ -6,7 +6,7 @@ namespace BlackCat\Database\Packages\PaymentGatewayNotifications;
 final class Definitions {
     // --- základní metadata ---
     public static function table(): string { return 'payment_gateway_notifications'; }
-    public static function contractView(): string { return 'v_payment_gateway_notifications_contract'; }
+    public static function contractView(): string { return 'vw_payment_gateway_notifications'; }
     /** @return string[] */
     public static function columns(): array { return [ 'id', 'transaction_id', 'received_at', 'processing_by', 'processing_until', 'attempts', 'last_error', 'status' ]; }
     public static function pk(): string { return 'id'; }

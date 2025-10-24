@@ -6,7 +6,7 @@ namespace BlackCat\Database\Packages\PaymentGatewayNotifications;
 /**
  * Bezpečný builder WHERE/ORDER/LIMIT.
  * - whitelist filtrů: [ 'id', 'transaction_id', 'received_at', 'processing_by', 'processing_until', 'attempts', 'last_error', 'status' ]
- * - whitelist pro LIKE hledání: [ 'transaction_id', 'processing_by', 'last_error' ]
+ * - whitelist pro LIKE hledání: [ 'transaction_id', 'processing_by', 'last_error', 'status' ]
  */
 final class Criteria {
     /** @var array<string,mixed> */
@@ -61,7 +61,7 @@ final class Criteria {
 
         // fulltext/LIKE (přes whitelist)
         if ($this->search !== null) {
-            $searchCols = [ 'transaction_id', 'processing_by', 'last_error' ];
+            $searchCols = [ 'transaction_id', 'processing_by', 'last_error', 'status' ];
             $likeParts = [];
             foreach ($searchCols as $i=>$c) {
                 if ($c === '') continue;
