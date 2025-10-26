@@ -1,10 +1,11 @@
--- Auto-generated from schema-map-mysql.psd1 (map@mtime:2025-10-24T09:13:35Z)
+-- Auto-generated from schema-map-mysql.psd1 (map@38d5403)
 -- engine: mysql
 -- table:  payment_gateway_notifications
 CREATE TABLE IF NOT EXISTS payment_gateway_notifications (
   id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-  transaction_id VARCHAR(255) NULL,
+  transaction_id VARCHAR(255) NOT NULL,
   received_at DATETIME(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6),
+  version INT UNSIGNED NOT NULL DEFAULT 0,
   processing_by VARCHAR(100) NULL,
   processing_until DATETIME(6) NULL,
   attempts INT UNSIGNED NOT NULL DEFAULT 0,
