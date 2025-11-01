@@ -1,4 +1,4 @@
--- Auto-generated from schema-views-postgres.psd1 (map@38d5403)
+-- Auto-generated from schema-views-postgres.psd1 (map@c5e4097)
 -- engine: postgres
 -- table:  payment_gateway_notifications
 -- Contract view for [payment_gateway_notifications]
@@ -7,6 +7,7 @@ SELECT
   id,
   transaction_id,
   received_at,
+  version,
   processing_by,
   processing_until,
   attempts,
