@@ -1,4 +1,4 @@
--- Auto-generated from schema-views-postgres.psd1 (map@db2f8b8)
+-- Auto-generated from schema-views-postgres.psd1 (map@9d3471b)
 -- engine: postgres
 -- table:  payment_gateway_notifications
 -- Contract view for [payment_gateway_notifications]
