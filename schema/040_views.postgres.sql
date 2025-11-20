@@ -1,10 +1,11 @@
--- Auto-generated from schema-views-postgres.psd1 (map@9d3471b)
+-- Auto-generated from schema-views-postgres.psd1 (map@62c9c93)
 -- engine: postgres
 -- table:  payment_gateway_notifications
 -- Contract view for [payment_gateway_notifications]
 CREATE OR REPLACE VIEW vw_payment_gateway_notifications AS
 SELECT
   id,
+  tenant_id,
   transaction_id,
   received_at,
   version,

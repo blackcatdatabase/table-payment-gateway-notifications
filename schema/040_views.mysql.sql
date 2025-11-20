@@ -1,4 +1,4 @@
--- Auto-generated from schema-views-mysql.psd1 (map@db2f8b8)
+-- Auto-generated from schema-views-mysql.psd1 (map@62c9c93)
 -- engine: mysql
 -- table:  payment_gateway_notifications
 -- Contract view for [payment_gateway_notifications]
@@ -6,6 +6,7 @@ CREATE OR REPLACE ALGORITHM=MERGE SQL SECURITY INVOKER VIEW vw_payment_gateway_n
 SELECT
   id,
   transaction_id,
+  tenant_id,
   received_at,
   version,
   processing_by,
