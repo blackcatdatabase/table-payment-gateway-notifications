@@ -5,6 +5,7 @@
 CREATE OR REPLACE VIEW vw_payment_gateway_notifications AS
 SELECT
   id,
+  tenant_id,
   transaction_id,
   received_at,
   version,

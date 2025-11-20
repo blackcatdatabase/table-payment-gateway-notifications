@@ -6,6 +6,7 @@ CREATE OR REPLACE ALGORITHM=MERGE SQL SECURITY INVOKER VIEW vw_payment_gateway_n
 SELECT
   id,
   transaction_id,
+  tenant_id,
   received_at,
   version,
   processing_by,
