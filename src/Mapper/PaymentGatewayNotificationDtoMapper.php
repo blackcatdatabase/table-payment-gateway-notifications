@@ -17,7 +17,7 @@ use BlackCat\Database\Support\DtoHydrator;
 final class PaymentGatewayNotificationDtoMapper
 {
     /** @var array<string,string> Column -> DTO property */
-    private const COL_TO_PROP = [ 'transaction_id' => 'transactionId', 'tenant_id' => 'tenantId', 'received_at' => 'receivedAt', 'processing_by' => 'processingBy', 'processing_until' => 'processingUntil', 'last_error' => 'lastError' ];
+    private const COL_TO_PROP = [ 'id' => 'id', 'transaction_id' => 'transactionId', 'tenant_id' => 'tenantId', 'received_at' => 'receivedAt', 'version' => 'version', 'processing_by' => 'processingBy', 'processing_until' => 'processingUntil', 'attempts' => 'attempts', 'last_error' => 'lastError', 'status' => 'status' ];
 
     /** @var string[] */
     private const BOOL_COLS   = [];
