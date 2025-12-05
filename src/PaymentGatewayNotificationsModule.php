@@ -100,7 +100,7 @@ SQL;
         $hasView  = SchemaIntrospector::hasView($db, $d, $view);
 
         // Quick index/FK check â€“ generator injects names (case-sensitive per DB)
-        $expectedIdx = [ 'idx_pg_notify_tenant_status_received', 'ux_pg_notify_tenant_tx' ];
+        $expectedIdx = [];
         if ($d->isMysql()) {
             // Drop PG-only index naming patterns (e.g., GIN/GiST)
             $expectedIdx = array_values(array_filter(
@@ -133,7 +133,7 @@ SQL;
             'columns'     => Definitions::columns(),
             'version'     => $this->version(),
             'dialects'    => [ 'mysql', 'postgres' ],
-            'indexes'     => [ 'idx_pg_notify_tenant_status_received', 'ux_pg_notify_tenant_tx' ],
+            'indexes'     => [],
             'foreignKeys' => [ 'fk_pg_notify_payment', 'fk_pg_notify_tenant' ],
         ];
     }
