@@ -5,13 +5,13 @@ Inbound notifications from payment gateways (webhooks, IPNs). transaction_id is 
 ## Columns
 | Column | Type | Null | Default | Description |
 | --- | --- | --- | --- | --- |
-| attempts | INTEGER | NO | 0 | Processing attempts. |
+| attempts | INT | NO | 0 | Processing attempts. |
 | id | BIGINT | NO |  | Surrogate primary key. |
 | last_error | VARCHAR(255) | YES |  | Last error message. |
 | processing_by | VARCHAR(100) | YES |  | Worker name processing the event. |
-| processing_until | TIMESTAMPTZ(6) | YES |  | Lease end. |
-| received_at | TIMESTAMPTZ(6) | NO | CURRENT_TIMESTAMP(6) | When we received the notification (UTC). |
-| status | TEXT | NO | pending | Processing status. (enum: pending, processing, done, failed) |
+| processing_until | DATETIME(6) | YES |  | Lease end. |
+| received_at | DATETIME(6) | NO | CURRENT_TIMESTAMP(6) | When we received the notification (UTC). |
+| status | ENUM('pending','processing','done','failed') | NO | pending | Processing status. (enum: pending, processing, done, failed) |
 | transaction_id | VARCHAR(255) | NO |  | Gateway transaction id (REQUIRED, UNIQUE). |
 
 ## Engine Details
@@ -61,5 +61,5 @@ Foreign keys:
 ## Views
 | View | Engine | Flags | File |
 | --- | --- | --- | --- |
-| vw_payment_gateway_notifications | mysql | algorithm=MERGE, security=INVOKER | [packages\payment-gateway-notifications\schema\040_views.mysql.sql](https://github.com/blackcatacademy/blackcat-database/packages/payment-gateway-notifications/schema/040_views.mysql.sql) |
-| vw_payment_gateway_notifications | postgres |  | [packages\payment-gateway-notifications\schema\040_views.postgres.sql](https://github.com/blackcatacademy/blackcat-database/packages/payment-gateway-notifications/schema/040_views.postgres.sql) |
+| vw_payment_gateway_notifications | mysql | algorithm=MERGE, security=INVOKER | [schema\040_views.mysql.sql](schema\040_views.mysql.sql) |
+| vw_payment_gateway_notifications | postgres |  | [schema\040_views.postgres.sql](schema\040_views.postgres.sql) |
