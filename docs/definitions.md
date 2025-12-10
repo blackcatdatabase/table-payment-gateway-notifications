@@ -5,13 +5,13 @@ Inbound notifications from payment gateways (webhooks, IPNs). transaction_id is 
 ## Columns
 | Column | Type | Null | Default | Description |
 | --- | --- | --- | --- | --- |
-| attempts | INT | NO | 0 | Processing attempts. |
+| attempts | mysql: INT / postgres: INTEGER | NO | 0 | Processing attempts. |
 | id | BIGINT | NO |  | Surrogate primary key. |
 | last_error | VARCHAR(255) | YES |  | Last error message. |
 | processing_by | VARCHAR(100) | YES |  | Worker name processing the event. |
-| processing_until | DATETIME(6) | YES |  | Lease end. |
-| received_at | DATETIME(6) | NO | CURRENT_TIMESTAMP(6) | When we received the notification (UTC). |
-| status | ENUM('pending','processing','done','failed') | NO | pending | Processing status. (enum: pending, processing, done, failed) |
+| processing_until | mysql: DATETIME(6) / postgres: TIMESTAMPTZ(6) | YES |  | Lease end. |
+| received_at | mysql: DATETIME(6) / postgres: TIMESTAMPTZ(6) | NO | CURRENT_TIMESTAMP(6) | When we received the notification (UTC). |
+| status | mysql: ENUM('pending','processing','done','failed') / postgres: TEXT | NO | pending | Processing status. (enum: pending, processing, done, failed) |
 | transaction_id | VARCHAR(255) | NO |  | Gateway transaction id (REQUIRED, UNIQUE). |
 
 ## Engine Details
