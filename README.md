@@ -98,8 +98,8 @@ graph LR
 _No engine differences detected._
 
 ## Constraints Snapshot
-- `attempts` – default=0
 - `received_at` – default=CURRENT_TIMESTAMP(6)
+- `attempts` – default=0
 - `status` – default=pending, enum
 
 ## Schema Files
