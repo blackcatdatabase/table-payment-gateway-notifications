@@ -5,14 +5,14 @@ Inbound notifications from payment gateways (webhooks, IPNs). transaction_id is 
 ## Columns
 | Column | Type | Null | Default | Description |
 | --- | --- | --- | --- | --- |
-| attempts | mysql: INT / postgres: INTEGER | NO | 0 | Processing attempts. |
-| id | BIGINT | NO |  | Surrogate primary key. |
 | last_error | VARCHAR(255) | YES |  | Last error message. |
-| processing_by | VARCHAR(100) | YES |  | Worker name processing the event. |
-| processing_until | mysql: DATETIME(6) / postgres: TIMESTAMPTZ(6) | YES |  | Lease end. |
-| received_at | mysql: DATETIME(6) / postgres: TIMESTAMPTZ(6) | NO | CURRENT_TIMESTAMP(6) | When we received the notification (UTC). |
+| id | BIGINT | NO |  | Surrogate primary key. |
+| attempts | mysql: INT / postgres: INTEGER | NO | 0 | Processing attempts. |
 | status | mysql: ENUM('pending','processing','done','failed') / postgres: TEXT | NO | pending | Processing status. (enum: pending, processing, done, failed) |
 | transaction_id | VARCHAR(255) | NO |  | Gateway transaction id (REQUIRED, UNIQUE). |
+| processing_until | mysql: DATETIME(6) / postgres: TIMESTAMPTZ(6) | YES |  | Lease end. |
+| received_at | mysql: DATETIME(6) / postgres: TIMESTAMPTZ(6) | NO | CURRENT_TIMESTAMP(6) | When we received the notification (UTC). |
+| processing_by | VARCHAR(100) | YES |  | Worker name processing the event. |
 
 ## Engine Details
 
