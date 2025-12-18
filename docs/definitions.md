@@ -3,16 +3,18 @@
 Inbound notifications from payment gateways (webhooks, IPNs). transaction_id is REQUIRED and UNIQUE.
 
 ## Columns
-| Column | Type | Null | Default | Description |
-| --- | --- | --- | --- | --- |
-| id | BIGINT | NO |  | Surrogate primary key. |
-| transaction_id | VARCHAR(255) | NO |  | Gateway transaction id (REQUIRED, UNIQUE). |
-| received_at | mysql: DATETIME(6) / postgres: TIMESTAMPTZ(6) | NO | CURRENT_TIMESTAMP(6) | When we received the notification (UTC). |
-| processing_by | VARCHAR(100) | YES |  | Worker name processing the event. |
-| processing_until | mysql: DATETIME(6) / postgres: TIMESTAMPTZ(6) | YES |  | Lease end. |
-| attempts | mysql: INT / postgres: INTEGER | NO | 0 | Processing attempts. |
-| last_error | VARCHAR(255) | YES |  | Last error message. |
-| status | mysql: ENUM('pending','processing','done','failed') / postgres: TEXT | NO | pending | Processing status. (enum: pending, processing, done, failed) |
+| Column | Type | Null | Default | Description | Crypto |
+| --- | --- | --- | --- | --- | --- |
+| id | BIGINT | NO |  | Surrogate primary key. |  |
+| transaction_id | VARCHAR(255) | NO |  | Gateway transaction id (REQUIRED, UNIQUE). |  |
+| tenant_id | BIGINT | NO |  | Owning tenant (FK tenants.id). |  |
+| received_at | mysql: DATETIME(6) / postgres: TIMESTAMPTZ(6) | NO | CURRENT_TIMESTAMP(6) | When we received the notification (UTC). |  |
+| version | mysql: INT / postgres: INTEGER | NO | 0 | Optimistic locking version counter. |  |
+| processing_by | VARCHAR(100) | YES |  | Worker name processing the event. |  |
+| processing_until | mysql: DATETIME(6) / postgres: TIMESTAMPTZ(6) | YES |  | Lease end. |  |
+| attempts | mysql: INT / postgres: INTEGER | NO | 0 | Processing attempts. |  |
+| last_error | VARCHAR(255) | YES |  | Last error message. |  |
+| status | mysql: ENUM('pending','processing','done','failed') / postgres: TEXT | NO | pending | Processing status. (enum: pending, processing, done, failed) |  |
 
 ## Engine Details
 
